@@ -1,20 +1,20 @@
 import numpy as np
 
-A = np.array([[1, 2, -1],
-              [2, 1, 4],
-              [3, 3, 4]])
+A = np.array([[1, 2, -1], [2, 1, 5], [3, 3, 4]])
+B = np.array([[1], [2], [1]])
 
-B = np.array([1, 2, 1])
-
-augmented_matrix = np.hstack([A, B.reshape(-1, 1)])
+AB = np.concatenate((A, B), axis=1)
 
 rank_A = np.linalg.matrix_rank(A)
-rank_augmented = np.linalg.matrix_rank(augmented_matrix)
+rank_AB = np.linalg.matrix_rank(AB)
 
-if rank_A == rank_augmented:
-    if rank_A == A.shape[1]:
-        print("The system is consistent and has a unique solution.")
+n = A.shape[1]
+
+if rank_A == rank_AB:
+    if rank_A == n:
+        print("The system has a unique solution.")
+        print(np.linalg.solve(A, B))
     else:
-        print("The system is consistent and has infinitely many solutions.")
+        print("The system has infinitely many solutions.")
 else:
-    print("The system is inconsistent and has no solution.")
+    print("The system of equations is inconsistent.")
