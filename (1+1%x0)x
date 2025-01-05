@@ -1,0 +1,5 @@
+from sympy import *
+import numpy as np
+x=Symbol('x')
+l=Limit((1+1/x)**x,x,np.inf).doit()
+display(l)
