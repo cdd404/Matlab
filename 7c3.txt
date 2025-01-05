@@ -1,4 +1,0 @@
-from sympy import Limit,Symbol,exp,sin
-x=Symbol('x')
-l=Limit((sin(x))/x,x,0).doit()
-print(l)
