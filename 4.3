@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+def modified_euler(f,x0,y0,h,n):
+    x=np.zeros(n+1)
+    y=np.zeros(n+1)
+    x[0]=x0
+    y[0]=y0
+    for i in range(n):
+        x[i+1]=x[i]+h
+        k1=h*f(x[i],y[i])
+        k2=h*f(x[i+1],y[i]+k1)
+        y[i+1]=y[i]+0.5*(k1+k2)
+    return x, y
+def f(x,y):
+    return -0.01*y
+x0=0.0
+y0=100.0
+h=25
+n=4
+x,y=modified_euler(f,x0,y0,h,n)
+print("The required value at x=%0.2f,y=%0.5f"%(x[4],y[4]))
+print("\n\n")
+plt.plot(x,y,'bo-')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Solution of dy/dx=-ky using Modified Euler\'s Method')
+plt.grid(True)
+plt.show()
