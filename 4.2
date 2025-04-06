@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+f = lambda x, y:np.exp(-x)
+h = 0.2
+y0 = -1
+n=3
+
+y[0] = y0
+x[0]=0
+for i in range(0,n):
+    x[i+1]=x[i]+h
+    y[i + 1] = y[i] + h*f(x[i], y[i])
+print("The required values are at x= %0.2f, y=%0.5f,x= %0.2f,\
+y=%0.5f,x=%0.2f,y=%0.5f,x=%0.2f,y=%0.5f"%(x[0],y[0],x[1],y[1],x\
+[2],y[2],x[3],y[3]))
+print("\n\n")
+plt.plot(x,y,'bo--',label='Approximate')
+plt.plot(x,-np.exp(-x),'g*-',label='Exact')
+plt.title("Approximate and Exact Solution")
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.grid()
+plt.legend(loc='best')
+plt.show()
