@@ -1,0 +1,13 @@
+import numpy as np
+from scipy . linalg import null_space
+A = np . array ([[1 , 2 , 3], [4 , 5 , 6], [7 , 8 , 9]])
+rank = np . linalg . matrix_rank ( A )
+print (" Rank of the matrix ", rank )
+ns = null_space ( A )
+print (" Null space of the matrix ", ns )
+nullity = ns . shape [1]
+print (" Null space of the matrix ", nullity )
+if rank + nullity == A . shape [1]:
+ print ("Rank - nullity theorem holds .")
+else :
+ print ("Rank - nullity theorem does not hold .")
