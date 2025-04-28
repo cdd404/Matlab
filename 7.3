@@ -1,0 +1,11 @@
+import numpy as np
+import matplotlib . pyplot as plt
+V = np . array ([[10 , 0]])
+origin = np . array ([[0 , 0 , 0],[0 , 0 , 0]]) # origin point
+A=np . matrix ([[2 , 0],[0 , 1]])
+V1=np . matrix ( V )
+V2=A*np . transpose ( V1 )
+V2=np . array ( V2 )
+plt . quiver (*origin , V[:,0], V[:,1], color =['b'], scale =50 )
+plt . quiver (*origin , V2[0 ,:], V2[1 ,:], color =['r'], scale =50 )
+plt . show ()
