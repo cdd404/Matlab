@@ -1,0 +1,10 @@
+from sympy import beta, gamma
+
+m = float(input('m : '))
+n = float(input('n : '))
+
+s = beta(m, n)
+t = gamma(n)
+
+print('gamma(', n, ') is %3.3f' % t)
+print('beta(', m, n, ') is %3.3f' % s)
