@@ -26,4 +26,4 @@ x = 0.0
 xstop = 0.1
 y = array([1.0])
 X, Y = taylor(deriv, x, y, xstop, 0.01)
-
+print("The required values are:x=%0.2f,y=50.5f,x=x0,2f,y=%0.5f" *(X[0],Y[0],X[1],Y[1]))
