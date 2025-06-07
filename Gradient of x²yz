@@ -1,0 +1,12 @@
+from sympy.physics.vector import *
+from sympy import var, pprint
+var('x, y, z')
+v = ReferenceFrame('v')
+F = v[0] ** 2 * v[1] * v[2]
+G = gradient(F, v)
+F = F.subs([(v[0], x), (v[1], y), (v[2], z)])
+print("Given scalar function F=")
+display(F)
+G = G.subs([(v[0], x), (v[1], y), (v[2], z)])
+print("\n Gradient of F=")
+display(G)
