@@ -10,7 +10,7 @@ def taylor(deriv, x, y, xstop, h):
         H = 1.0
         for j in range(3):
             H = H * h / (j + 1)
-            y = y + D[j] * h
+            y = y + D[j] * H
         x = x + h
         X.append(x)
         Y.append(y[0])
@@ -25,5 +25,6 @@ def deriv(x, y):
 x = 0.0
 xstop = 0.1
 y = array([1.0])
-X, Y = taylor(deriv, x, y, xstop, 0.01)
+h=0.1
+X, Y = taylor(deriv, x, y, xstop, h)
 print("The required values are:x=%0.2f,y=%0.5f,x=%0.2f,y=%0.5f" %(X[0],Y[0],X[1],Y[1]))
