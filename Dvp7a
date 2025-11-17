@@ -1,0 +1,45 @@
+# Import necessary libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+# Load an example dataset
+data = sns.load_dataset("tips")
+# -------------------------------
+# 1. Using set_style()
+# -------------------------------
+# Changes the background style of the plot
+# Common options: 'white', 'dark', 'whitegrid', 'darkgrid', 'ticks'
+sns.set_style("whitegrid")
+plt.figure(figsize=(8, 5))
+sns.boxplot(x="day", y="total_bill", data=data)
+plt.title("Seaborn Plot with set_style('whitegrid')")
+plt.show()
+# -------------------------------
+# 2. Using set_context()
+# -------------------------------
+# Adjusts the scale of plot elements like labels and lines
+# Options: 'paper', 'notebook', 'talk', 'poster'
+sns.set_context("talk") # Larger font and line sizes
+plt.figure(figsize=(8, 5))
+sns.scatterplot(x="total_bill", y="tip", hue="day", data=data)
+plt.title("Seaborn Plot with set_context('talk')")
+plt.show()
+# -------------------------------
+# 3. Using set_palette()
+# -------------------------------
+# Changes the color palette of the plot
+# Example palettes: 'deep', 'muted', 'bright', 'pastel', 'dark', 'colorblind'
+sns.set_palette("pastel")
+plt.figure(figsize=(8, 5))
+sns.barplot(x="day", y="tip", data=data)
+plt.title("Seaborn Plot with set_palette('pastel')")
+plt.show()
+# -------------------------------
+# 4. Combining all three
+# -------------------------------
+sns.set_style("darkgrid")
+sns.set_context("poster")
+sns.set_palette("muted")
+plt.figure(figsize=(8, 5))
+sns.scatterplot(x="total_bill", y="tip", hue="sex", style="time", data=data)
+plt.title("Combined Customization Example")
+plt.show()
