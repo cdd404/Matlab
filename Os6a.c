@@ -49,17 +49,4 @@ int main() {
     printf("\n");
 
     return 0;
-}}
-}
-fragments[m] = top;
-block_arr[file_arr[m]] = 1;
-top = 0;
-}
-printf("\nFile Number\tFile Size\tBlock Number\tBlock Size\tFragment");
-for(m=0; m < number_of_files; m++)
-{
-printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d", m, files[m], file_arr[m], blocks[file_arr[m]], fragments[m]);
-}
-printf("\n");
-return 0;
 }
