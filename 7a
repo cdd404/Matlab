@@ -1,0 +1,50 @@
+#include<stdio.h> 
+int main()
+{
+    int i,j,n,a[50],frame[10],no,k,avail,count=0;
+
+    printf("\n ENTER THE NUMBER OF PAGES:\n");
+    scanf("%d",&n);
+
+    printf("\n ENTER THE PAGE NUMBER :\n");
+    for(i=0;i<n;i++)   // changed index to start from 0 for consistency
+        scanf("%d",&a[i]);
+
+    printf("\n ENTER THE NUMBER OF FRAMES :");
+    scanf("%d",&no); 
+
+    for(i=0;i<no;i++)
+        frame[i]= -1;
+
+    j=0;
+    printf("\tref string\t page frames\n"); 
+
+    for(i=0;i<n;i++)
+    {
+        avail=0;   // reset availability for each page
+
+        for(k=0;k<no;k++)
+        {
+            if(frame[k]==a[i])   // check if page already in frame
+            {
+                avail=1;
+                break;
+            }
+        }
+
+        if(avail==0)   // page fault occurs
+        {
+            frame[j]=a[i];       // replace using FIFO
+            j=(j+1)%no;          // move to next frame in circular order
+            count++;             // increment page fault count
+        }
+
+        printf("%d\t\t",a[i]);   // print current reference string
+        for(k=0;k<no;k++)
+            printf("%d\t",frame[k]);
+        printf("\n");
+    }
+
+    printf("Page Fault Is %d",count); 
+    return 0;
+}
